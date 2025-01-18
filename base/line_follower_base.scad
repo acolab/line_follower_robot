@@ -94,12 +94,12 @@ union(){
     cube(size = [10,42,thickness], center = true);*/    
 
     //arduino
-    arduino_center = [71,-2, 0];
+    arduino_center = [72,3, 0];
     arduino_rotation = 180;
     
     translate(arduino_center)
     rotate(arduino_rotation, [0,0,1])
-    translate([0, 0,0]) 
+    translate([-0.5, 0,0]) 
     cylinder(h = thickness, r1 = screw_radius_1, r2 = screw_radius_1, center =true);
     
     translate(arduino_center)
@@ -120,10 +120,8 @@ union(){
     
     //H bridge
     
-   // h_bridge_center = [52, -40, 0];
-   h_bridge_center = [50, -34, 0];
-
-   // h_bridge_rotation = -35;
+    h_bridge_center = [45, -40, 0];
+    h_bridge_rotation = -40;
     
     translate(h_bridge_center)
     rotate(h_bridge_rotation, [0,0,1])
@@ -165,28 +163,24 @@ union(){
     interrupteur_length = 13;
     //interrupteur_center = [25-big_radius, -37, 0];
     
-    interrupteur_center = [big_radius-13, -18, 0];
+    interrupteur_center = [big_radius-15, -20, 0];
     
     translate(interrupteur_center) 
     cube(size = [interrupteur_width,interrupteur_length,thickness], center = true);
     
-    // hole for interrupteur  cables
-    translate(interrupteur_center) 
-    //translate([-5, -19, 0])
-    translate([-35, -50, 0])
-    rotate(-20 , [0,0,1])
-    cylinder(h = thickness, r1 = 5, r2 = 5, center =true);
-
+    /*translate(interrupteur_center) 
+    translate([-5, -19, 0])
+    cylinder(h = thickness, r1 = 3, r2 = wire_hole_radius, center =true);*/
     
     //hole for wires
     translate([ 0,0, 0]) 
     cylinder(h = thickness, r1 = wire_hole_radius, r2 = wire_hole_radius, center =true);
     
-    translate([5, -30, 0]) 
+  /*  translate([5, -30, 0]) 
     cube(size = [10,12,thickness], center = true);
     
     translate([5, 30, 0]) 
-    cube(size = [10,12,thickness], center = true);
+    cube(size = [10,12,thickness], center = true);*/
     
     
     //hole for the battery connector
@@ -199,20 +193,10 @@ union(){
     
     translate([ -50,40, 0]) 
     cylinder(h = thickness, r1 = wire_hole_radius, r2 = wire_hole_radius, center =true);*/
-    
-  
-   translate([-60, -50 ,0])
-   rotate(90 , [0,0,1])
-   scale([0.2,0.2,0.5])
-   import("ACoLab_5mm.stl", convexity=10);
-   //import("acolab.svg");
-    
-    
 }
 
 }
 
-//make the base thinner
 cube(size = [2*big_radius+10,2*big_radius-30,thickness], center = true);
 
 }
